@@ -1,0 +1,111 @@
+*{
+    font-family: 'poppins',sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header.atas {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+  }
+  
+  #logoheader {
+    width: 100px; 
+    height: auto; 
+    margin-bottom: 10px; 
+  }
+  
+  header h1 {
+    font-size: 36px; 
+    margin-bottom: 5px; 
+    color: #333; 
+  }
+  
+  header p {
+    font-size: 18px; 
+    color: #555; 
+    margin: 0; 
+  }
+  
+  header nav ul {
+    list-style: none; 
+    display: flex; 
+    gap: 15px; 
+    padding: 0;
+    margin-top: 20px; 
+  }
+  
+  header nav ul li a {
+    text-decoration: none; 
+    font-size: 16px;
+    color: #333;
+    padding: 5px 10px;
+
+  }
+  
+  header nav ul li a:hover {
+    background-color: #FF5722; 
+    color: white;
+    border-radius: 5px;
+  }
+  
+  main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+#content-left {
+  flex: 2; /* Bagian kiri lebih besar dari kontak */
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  width: 100%;
+}
+#food, #about, #galeri {
+  width: 100%;
+  text-align: center;
+}
+
+th{
+    padding-right:5px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin:5px;
+    padding: 20px;
+    text-align: center; 
+    overflow: hidden; 
+  }
+  aside#kontak {
+    flex: 1;
+    align-self: flex-start; 
+    max-width: 400px;
+    box-shadow: none;
+}
+section{
+    text-align: center;
+    align-items: center;
+}
+aside img{
+    width:120px;
+    height: auto;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    background-color: whitesmoke;
+}
+footer img{
+    height: auto;
+    width:25px;
+}
