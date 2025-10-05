@@ -1,30 +1,33 @@
 <?php
-
 session_start();
-$conn = new mysqli("localhost","root","","login_db");
-if ($conn->connect_error){
-    die("Koneksi Gagal: ".$conn->connect_error);
+//Ganti passwordnya sesuai my sql kalian
+$conn = new mysqli("localhost", "root", "", "login_db");
+
+// Cek koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$username=$_POST['username'];
-$password=$_POST['password'];
+//cek password
+echo "Username yang dikirim: " . $_POST['username'] . "<br>";
+echo "Password yang dikirim: " . $_POST['password'] . "<br>";
 
-$sql="select * from users where username = ?";
-$stmt= $conn->prepare($sql);
-$stmt-> bind_param("s",$username);
-$stmt-> execute();
-$result= $stmt->get_result();
+// Ambil data dari form
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-if($result->num_rows>0){
-    $user=$result->fetch_assoc();
-    if(password_verify($password,$username['password'])){
-        $_SESSION['username']=$user['username'];
-        header("Location:welcome.php");
-        exit();
-    } else{
-        echo "Password salah <a href='login.html'> Coba Lagi</a>";
-    } 
-}else {
-        echo "user tidak ditemukan <a href='login.html'> Coba Lagi</a>";
-    }
+// Query cek user
+$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$result = $conn->query($sql);
+
+// Pastikan ada user
+if ($result && $result->num_rows > 0) {
+    $_SESSION['username'] = $username;
+    header("Location: welcome.php");
+    exit();
+} else {
+    echo "Username atau Password salah! <a href='login.html'>Coba lagi</a>";
+}
+
+$conn->close();
 ?>
