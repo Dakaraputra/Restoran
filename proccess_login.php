@@ -8,10 +8,6 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-//cek password
-echo "Username yang dikirim: " . $_POST['username'] . "<br>";
-echo "Password yang dikirim: " . $_POST['password'] . "<br>";
-
 // Ambil data dari form
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -31,3 +27,4 @@ if ($result && $result->num_rows > 0) {
 
 $conn->close();
 ?>
+
